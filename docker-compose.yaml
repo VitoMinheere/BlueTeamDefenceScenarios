@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  target:
+    build: ./target
+    container_name: ssh-target
+    ports:
+      - "2222:22"  # Expose SSH on host for manual testing
+    networks:
+      blue-net:
+        ipv4_address: 172.30.0.10
+    privileged: true  # Needed for systemctl and firewall tools
+
+  attacker:
+    build: ./attacker
+    container_name: ssh-attacker
+    depends_on:
+      - target
+    networks:
+      blue-net:
+        ipv4_address: 172.30.0.100
+
+networks:
+  blue-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
