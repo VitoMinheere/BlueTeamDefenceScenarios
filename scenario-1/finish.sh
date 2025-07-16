@@ -16,3 +16,11 @@ else
   echo "Try again!"
   echo "========================================"
 fi
+
+if [[ $1 == "--hint" ]]; then
+  echo "🧠 Hint: Try checking /var/log/auth.log for repeated login failures."
+  echo "Use tools like 'ss -tnp', 'netstat -anp', or 'fail2ban-client status'"
+  echo "Look at sshd_config—root login might be allowed."
+  echo "Use iptables or UFW to block bad IPs."
+  exit 0
+fi
