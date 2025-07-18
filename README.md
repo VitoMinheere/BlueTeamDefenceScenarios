@@ -33,7 +33,8 @@ You get SSH access to the target and must respond using standard command-line to
 | Scenario | Focus Area | Status |
 |----------|------------|--------|
 | [01 - SSH Brute-Force Attack](./scenario-1) | Log analysis, blocking, SSH hardening | ✅ Released |
-| 02 - Lateral Movement (Docker socket) | Container abuse, privilege escalation | 🛠️ Coming soon |
+| [02 - Lateral Movement (Docker socket)](./scenario-2/) | Container abuse, privilege escalation |  ✅ Released |
+| 03 - Log Tampering | Spot signs of tempered logs | 🛠️ Coming soon |
 
 ---
 
@@ -43,6 +44,7 @@ You get SSH access to the target and must respond using standard command-line to
 git clone https://github.com/VitoMinheere/BlueTeamDefenceScenarios.git
 cd BlueTeamDefenceScenarios/scenario-1
 ./start_scenario.sh
+```
 
 ---
 
@@ -50,7 +52,6 @@ cd BlueTeamDefenceScenarios/scenario-1
 
 🚧 More scenarios coming soon:
 
-* Lateral movement
 * Log tampering
 * Malware persistence
 * Cloud misconfigurations

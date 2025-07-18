@@ -4,7 +4,7 @@ set -e
 # Variables
 NET_NAME=blue-lab-net
 SUBNET=172.31.0.0/24
-DEFENDER_NAME=defender
+TARGET_NAME=target
 ATTACKER_NAME=attacker
 
 # Create Docker network if not exists
@@ -17,6 +17,6 @@ docker-compose build
 echo "[+] Starting containers..."
 docker-compose up -d
 
-echo "[+] Lab started. SSH to defender with:"
+echo "[+] Lab started. SSH to target with:"
 echo "    ssh blueuser@localhost -p 2233"
 echo "    (password: bluepass)" 
