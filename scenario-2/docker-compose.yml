@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  target:
+    build: ./target
+    container_name: target
+    networks:
+      blue-lab-net:
+        ipv4_address: 172.31.0.10
+    ports:
+      - "2233:2233"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+
+  attacker:
+    build: ./attacker
+    container_name: attacker
+    networks:
+      blue-lab-net:
+        ipv4_address: 172.31.0.20
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+
+networks:
+  blue-lab-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24 
